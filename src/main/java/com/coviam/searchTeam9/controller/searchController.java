@@ -60,9 +60,7 @@ public class searchController {
         ResponseEntity<ProductInput[]> response=restTemplate.getForEntity("url",ProductInput[].class);
         ProductInput[] productInputs1=response.getBody();
         for(ProductInput x:productInputs1){
-            Product product=new Product();
-            BeanUtils.copyProperties(x,product);
-            searchService.addProducts(product);
+            searchService.addProducts(x);
         }
     }
 
@@ -78,15 +76,15 @@ public class searchController {
         return new ResponseEntity<List<ProductDTO>>(returnList,HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/{category}")
-    public ResponseEntity<List<ProductDTO>> getProductsByCategory(@PathVariable String category){
-        List<ProductDTO> list=new LinkedList<ProductDTO>();
-        for(Product p:searchService.searchByCategory(category)){
-            ProductDTO productDTO=new ProductDTO();
-            BeanUtils.copyProperties(p,productDTO);
-            list.add(productDTO);
-        }
-        return new ResponseEntity<List<ProductDTO>>(list,HttpStatus.CREATED);
-    }
+//    @GetMapping(path = "/{category}")
+//    public ResponseEntity<List<ProductDTO>> getProductsByCategory(@PathVariable String category){
+//        List<ProductDTO> list=new LinkedList<ProductDTO>();
+//        for(Product p:searchService.searchByCategory(category)){
+//            ProductDTO productDTO=new ProductDTO();
+//            BeanUtils.copyProperties(p,productDTO);
+//            list.add(productDTO);
+//        }
+//        return new ResponseEntity<List<ProductDTO>>(list,HttpStatus.CREATED);
+//    }
 
 }

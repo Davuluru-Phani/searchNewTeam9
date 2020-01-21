@@ -2,7 +2,6 @@ package com.coviam.searchTeam9.document;
 
 import lombok.Getter;
 import lombok.Setter;
-//import org.hibernate.annotations.Filter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.Indexed;
 import org.springframework.data.solr.core.mapping.SolrDocument;

@@ -13,7 +13,7 @@ public interface SearchRepository extends SolrCrudRepository<Product,String> {
 //    public List<Product> findByCategory(String category);
 //    public List<Product> findByDescription(String description);
 
-    public List<Product> findByName(String name);
+//    public List<Product> findByName(String name);
 //    public List<Product> findByCategory(String category);
     @Query("name:?0*")
     public List<Product> findByCustomQuery(String searhTe);
