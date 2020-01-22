@@ -2,10 +2,13 @@ package com.coviam.searchTeam9.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Map;
 
-@Getter @Setter
+@Getter
+@Setter
+@ToString
 public class ProductInput {
     private String productId;
     private String productName;

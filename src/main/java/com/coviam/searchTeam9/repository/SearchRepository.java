@@ -15,7 +15,9 @@ public interface SearchRepository extends SolrCrudRepository<Product,String> {
 
 //    public List<Product> findByName(String name);
 //    public List<Product> findByCategory(String category);
-    @Query("name:?0*")
-    public List<Product> findByCustomQuery(String searhTe);
 
+    public List<Product> findByName(String name);
+//    @Query("name:?0*")
+//    public List<Product> findByCustomQuery(String searchTerm);
+    public List<Product> findByCategoryName(String category);
 }

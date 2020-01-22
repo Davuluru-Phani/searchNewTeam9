@@ -18,13 +18,13 @@ public class Product {
     private String productId;
 
 
-    @Indexed(name = "productName", type = "string")
-    private String productName;
+    @Indexed(name = "name", type = "string")
+    private String name;
 
     @Indexed(name = "description", type = "string")
     private String description;
 
-    @Indexed(name = "searchFields",type = "String")
+    @Indexed(name = "searchFields", type = "String")
     private String searchFields;
 
     @Indexed(name = "categoryName", type = "string")

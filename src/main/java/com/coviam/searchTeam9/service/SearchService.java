@@ -10,7 +10,8 @@ public interface SearchService {
 //    public List<Product> searchByName(String name);
 //    public List<Product> searchByCategory(String category);
 //    public List<Product> searchByDescription(String description);
+    public List<Product> searchByName(String name);
     public void addProducts(ProductInput productInput);
     public List<Product> searchByCategory(String categoryName) ;
-    public List<Product> searchByCustomQuery(String searchTerm) ;
+//    public List<Product> searchByCustomQuery(String searchTerm) ;
 }

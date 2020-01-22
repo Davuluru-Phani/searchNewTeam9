@@ -1,15 +1,12 @@
 package com.coviam.searchTeam9.service.impl;
 
 import com.coviam.searchTeam9.document.Product;
-import com.coviam.searchTeam9.dto.ProductDTO;
 import com.coviam.searchTeam9.dto.ProductInput;
 import com.coviam.searchTeam9.repository.SearchRepository;
 import com.coviam.searchTeam9.service.SearchService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -20,10 +17,10 @@ public class SearchServiceImpl implements SearchService {
     @Autowired
     SearchRepository searchRepository;
 
-//    @Override
-//    public List<Product> searchByName(String productName) {
-//        return searchRepository.findByName(productName);
-//    }
+    @Override
+    public List<Product> searchByName(String productName) {
+        return searchRepository.findByName(productName);
+    }
 
     //    public List<Product> searchByCategory(String category){
 //        return searchRepository.findByCategory(category);
@@ -35,7 +32,7 @@ public class SearchServiceImpl implements SearchService {
     public void addProducts(ProductInput productInput) {
         Product product = new Product();
         product.setProductId(productInput.getProductId());
-        product.setProductName(productInput.getProductName());
+        product.setName(productInput.getProductName());
         product.setDescription(productInput.getDescription());
         StringJoiner str = new StringJoiner(", ");
         for (Map.Entry<String, String> entry : productInput.getAttributes().entrySet()) {
@@ -53,14 +50,13 @@ public class SearchServiceImpl implements SearchService {
 
     @Override
     public List<Product> searchByCategory(String categoryName) {
-//        return searchRepository.findByCategory(categoryName);
-        return Collections.emptyList();
+        return searchRepository.findByCategoryName(categoryName);
     }
 
 
-    @Override
-    public List<Product> searchByCustomQuery(String searchTerm) {
-        return searchRepository.findByCustomQuery(searchTerm);
-    }
+//    @Override
+//    public List<Product> searchByCustomQuery(String searchTerm) {
+//        return searchRepository.findByCustomQuery(searchTerm);
+//    }
 
 }
