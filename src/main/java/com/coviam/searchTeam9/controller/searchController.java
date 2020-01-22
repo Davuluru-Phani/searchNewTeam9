@@ -65,6 +65,12 @@ public class searchController {
         }
     }
 
+    @PostMapping(path = "/addProd")
+    public void addProduct(@RequestBody  ProductInput productInputs) {
+
+        searchService.addProducts(productInputs);
+    }
+
 //    @GetMapping(path = "/{searchTerm}")
 //    public ResponseEntity<List<ProductDTO>> getProductsBySearchName(@PathVariable String searchTerm){
 //        List<ProductDTO> returnList=new LinkedList<>();
@@ -82,6 +88,7 @@ public class searchController {
         for (Product p : searchService.searchByCategory(category)) {
             ProductDTO productDTO = new ProductDTO();
             BeanUtils.copyProperties(p, productDTO);
+            productDTO.setProductName(p.getName());
             list.add(productDTO);
         }
         return new ResponseEntity<List<ProductDTO>>(list, HttpStatus.CREATED);
@@ -93,6 +100,7 @@ public class searchController {
         for (Product p : searchService.searchByName(name)) {
             ProductDTO productDTO = new ProductDTO();
             BeanUtils.copyProperties(p, productDTO);
+            productDTO.setProductName(p.getName());
             list.add(productDTO);
         }
         return new ResponseEntity<List<ProductDTO>>(list, HttpStatus.CREATED);
